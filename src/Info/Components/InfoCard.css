@@ -1,0 +1,49 @@
+.Info {
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 60rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    background: linear-gradient(30deg,black,#570633);
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Info__heading{
+    margin: 5px;
+    font-weight: lighter;
+}
+
+.Info__image{
+    width: 40%;
+    height: 50%;
+    padding: 15px;
+    background-color: wheat;
+    border-radius: 5px;
+    max-height: 50%;
+}
+
+.Info__image img{
+    height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.Info__description{
+    padding: 5px;
+    margin: 15px;
+    line-height: 1.7;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .Info__image{
+        width: 60%;
+    }
+  }

@@ -1,0 +1,23 @@
+.authentication {
+    width: 90%;
+    max-width: 35rem;
+    margin: 9rem auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,black,#570633);
+}
+
+.authentication h2{
+    color:wheat;
+    font-size: 2rem;
+    font-weight: lighter;
+}  
+
+.authentication hr{
+    border:1px solid wheat;    
+}
+  
+.authentication form {
+    margin-bottom: 1rem;
+  }

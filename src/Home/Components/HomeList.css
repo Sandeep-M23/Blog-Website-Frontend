@@ -1,0 +1,26 @@
+/* .home-list {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-list__heading{
+  font-size: 3rem;
+  font-weight: lighter;
+  padding: 2px;
+}
+
+.home-list__heading::before{
+
+} */
+.home-list__list{
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
