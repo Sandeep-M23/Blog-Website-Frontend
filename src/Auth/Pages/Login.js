@@ -9,11 +9,13 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../Shared/Util/Validators";
+import {AuthContext} from '../../Shared/Context/authContext';
 
 import './Login.css';
 
 
 const Login = () => {
+  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
 
   const [formState, inputHandler, setFormData] = useForm(
@@ -54,12 +56,18 @@ const Login = () => {
     setIsLoginMode(prevMode => !prevMode);
   };
 
+  const authSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs);
+    auth.login();
+  };
+
   return (
     <React.Fragment>
       <Card className="authentication">
         <h2>{!isLoginMode ? 'SIGNUP REQUIRED':'LOGIN REQUIRED'}</h2>
         <hr />
-        <form>
+        <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
             <Input
               element="input"
