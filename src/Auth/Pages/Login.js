@@ -1,33 +1,34 @@
-import React, {useState,useContext} from "react";
-
-import { useForm } from "../../Shared/Hooks/Form-Hooks";
+import React, { useState, useContext } from "react";
 import Card from "../../Shared/Components/UI-Elements/Card";
 import Button from "../../Shared/Components/Form-Elements/Button";
 import Input from "../../Shared/Components/Form-Elements/Input";
+import Spinner from "../../Shared/Components/UI-Elements/Spinner";
+import ErrorModal from "../../Shared/Components/UI-Elements/ErrorModal";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../Shared/Util/Validators";
-import {AuthContext} from '../../Shared/Context/authContext';
-
-import './Login.css';
-
+import { useForm } from "../../Shared/Hooks/Form-Hooks";
+import { useHttpClient } from "../../Shared/Hooks/Http-Hooks";
+import { AuthContext } from "../../Shared/Context/authContext";
+import "./Login.css";
 
 const Login = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const { loading, error, sendRequest, clearError } = useHttpClient();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
-        value: '',
-        isValid: false
+        value: "",
+        isValid: false,
       },
       password: {
-        value: '',
-        isValid: false
-      }
+        value: "",
+        isValid: false,
+      },
     },
     false
   );
@@ -37,7 +38,7 @@ const Login = () => {
       setFormData(
         {
           ...formState.inputs,
-          name: undefined
+          name: undefined,
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
       );
@@ -46,26 +47,58 @@ const Login = () => {
         {
           ...formState.inputs,
           name: {
-            value: '',
-            isValid: false
-          }
+            value: "",
+            isValid: false,
+          },
         },
         false
       );
     }
-    setIsLoginMode(prevMode => !prevMode);
+    setIsLoginMode((prevMode) => !prevMode);
   };
 
-  const authSubmitHandler = (event) => {
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(formState.inputs);
-    auth.login();
+    if (isLoginMode) {
+      try {
+       const responseData = await sendRequest(
+          "http://localhost:5000/user/login",
+          "POST",
+          JSON.stringify({
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+          { "Content-Type": "application/json" }
+        );
+        auth.login(responseData.user.id);
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      try {
+       const responseData =  await sendRequest(
+          "http://localhost:5000/user/signup",
+          "POST",
+          JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        auth.login(responseData.user.id);
+      } catch (err) {}
+    }
   };
 
   return (
     <React.Fragment>
+      {loading && <Spinner />}
+      <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
-        <h2>{!isLoginMode ? 'SIGNUP REQUIRED':'LOGIN REQUIRED'}</h2>
+        <h2>{!isLoginMode ? "SIGNUP REQUIRED" : "LOGIN REQUIRED"}</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
@@ -98,11 +131,11 @@ const Login = () => {
             onInput={inputHandler}
           />
           <Button type="submit" disabled={!formState.isValid}>
-            {isLoginMode ? 'LOGIN' : 'SIGNUP'}
+            {isLoginMode ? "LOGIN" : "SIGNUP"}
           </Button>
         </form>
         <Button inverse onClick={switchModeHandler}>
-          SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
+          SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
       </Card>
     </React.Fragment>
