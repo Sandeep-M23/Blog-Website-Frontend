@@ -25,8 +25,31 @@
   .nav-links a:hover,
   .nav-links a:active,
   .nav-links a.active {
-    border-bottom: 3px solid wheat;
+    background: wheat;
+    color: #570633;
+    border-radius: 5px;
   }
+
+  .nav-links button {
+    cursor: pointer;
+    border:none;
+    color: wheat;
+    background: transparent;
+    padding: 0.5rem;
+    font: inherit;
+  }
+  
+  .nav-links button:focus {
+    outline: none;
+  }
+  
+  .nav-links button:hover,
+  .nav-links button:active {
+    background: wheat;
+    color: #570633;
+    border-radius: 5px;
+  }
+  
   
   
   @media (min-width: 768px) {
@@ -41,5 +64,17 @@
     .nav-links a {
       color: wheat;
       text-decoration: none;
+    }
+    .nav-links button {
+      border:none;
+      color: wheat;
+      background: transparent;
+
+    }
+    
+    .nav-links button:hover,
+    .nav-links button:active {
+      background: wheat;
+      color: #570633;
     }
   }
