@@ -24,3 +24,10 @@
   flex-direction: column;
   align-items: center;
 }
+.empty_Card{
+  background-color:#570633;
+  color: wheat;
+  padding: 10px 20px;
+  margin: 15px;
+  border-radius: 5px;
+}
