@@ -16,20 +16,6 @@ const BlogItem = (props) => {
     setShowConfirmModal(false);
   };
 
-  //   const confirmDeleteHandler = async () => {
-  //     setShowConfirmModal(false);
-  //     try {
-  //       await sendRequest(
-  //         process.env.REACT_APP_BACKEND_URL + `/places/${props.id}`,
-  //         'DELETE',
-  //         null,
-  //         {
-  //           Authorization: 'Bearer ' + auth.token
-  //         }
-  //       );
-  //       props.onDelete(props.id);
-  //     } catch (err) {}
-  //   };
 
   return (
     <React.Fragment>
@@ -63,10 +49,8 @@ const BlogItem = (props) => {
             />
           </div>
           <div className="blog-item__info">
-            <h2>Title</h2>
-            <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-            fringilla velit nisl, id mattis purus ornare a. Proin imperdiet nibh
-            libero, non pharetra enim facilisis id. Vestibulum scelerisque</p>
+            <h2>{props.title}</h2>
+            <p>{props.description}</p>
           </div>
           <div className="blog-item__actions">
             <Button type="button" to="/Info">
