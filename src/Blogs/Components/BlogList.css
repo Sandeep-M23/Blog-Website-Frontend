@@ -5,4 +5,11 @@
     width: 90%;
     max-width: 55rem;
   }
+  .empty_Card{
+    background-color:#570633;
+    color: wheat;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+  }
   

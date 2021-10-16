@@ -8,3 +8,11 @@
     border-radius: 10px;
     background: linear-gradient(30deg,black,#570633);
   }
+  .empty_Card{
+    background-color:#570633;
+    color: wheat;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+  }
+  
