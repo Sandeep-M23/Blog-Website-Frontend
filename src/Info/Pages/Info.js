@@ -6,6 +6,7 @@ import InfoCard from "../Components/InfoCard";
 import { useParams } from "react-router";
 
 const Info = () => {
+  const [loadedBlog, setLoadedBlog] = useState();
   const { loading, error, sendRequest, clearError } = useHttpClient();
   const blogId = useParams().blogId;
   useEffect(() => {
@@ -15,11 +16,11 @@ const Info = () => {
         const responseData = await sendRequest(
           `http://localhost:5000/api/blogs/${blogId}`
         );
+        setLoadedBlog(responseData.blog);
       } catch (err) {}
     };
     fetchBlog();
-  }, [sendRequest]);
-
+  }, [sendRequest, blogId]);
 
   return (
     <React.Fragment>
@@ -29,7 +30,14 @@ const Info = () => {
           <Spinner />
         </div>
       )}
-      {!loading && <InfoCard />}
+      {!loading && loadedBlog && (
+        <InfoCard
+          key={loadedBlog.id}
+          id={loadedBlog.id}
+          title={loadedBlog.title}
+          description={loadedBlog.description}
+        />
+      )}
     </React.Fragment>
   );
 };
