@@ -41,7 +41,7 @@ const NewBlog = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        "http://localhost:5000/blogs/create",
+        "http://localhost:5000/api/blogs/create",
         "POST",
         JSON.stringify({
           title: formState.inputs.title.value,

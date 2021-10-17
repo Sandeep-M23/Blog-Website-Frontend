@@ -37,16 +37,16 @@ const App = () => {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/Info" exact>
+        <Route path="/Info/:blogId" exact>
           <Info />
         </Route>
-        <Route path="/NewBlog" exact>
+        <Route path="/blogs/new" exact>
           <NewBlog />
         </Route>
-        <Route path="/MyBlogs" exact>
+        <Route path="/:userId/blogs" exact>
           <MyBlogs />
         </Route>
-        <Route path="/UpdateBlog" exact>
+        <Route path="/blogs/:blogId" exact>
           <UpdateBlog />
         </Route>
         <Redirect to="/" />
@@ -58,7 +58,7 @@ const App = () => {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/Info" exact>
+        <Route path="/Info/:blogId" exact>
           <Info />
         </Route>
         <Route path="/Login">

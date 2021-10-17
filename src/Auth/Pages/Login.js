@@ -62,7 +62,7 @@ const Login = () => {
     if (isLoginMode) {
       try {
        const responseData = await sendRequest(
-          "http://localhost:5000/user/login",
+          "http://localhost:5000/api/user/login",
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -77,7 +77,7 @@ const Login = () => {
     } else {
       try {
        const responseData =  await sendRequest(
-          "http://localhost:5000/user/signup",
+          "http://localhost:5000/api/user/signup",
           "POST",
           JSON.stringify({
             name: formState.inputs.name.value,

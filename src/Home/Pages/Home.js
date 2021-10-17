@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const responseData = await sendRequest("http://localhost:5000/blogs");
+        const responseData = await sendRequest("http://localhost:5000/api/blogs");
         setBlogs(responseData.blogs);
       } catch (err) {}
     };

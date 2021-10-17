@@ -10,7 +10,7 @@ const BlogList = (props) => {
       <div className="place-list center">
         <Card className="empty_Card">
           <h2>No Blogs found. Maybe create one?</h2>
-          {/* <Button to="/places/new">Make New Blog</Button> */}
+          <Button to="/blogs/new">Create New Blog</Button>
         </Card>
       </div>
     );
@@ -23,6 +23,7 @@ const BlogList = (props) => {
           <BlogItem
             key={blog.id}
             id={blog.id}
+            creatorId={blog.creator}
             title={blog.title}
             description={blog.description}
           />

@@ -14,12 +14,12 @@ const NavLinks = () => {
       </li>
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/MyBlogs">MY BLOGS</NavLink>
+          <NavLink to={`/${auth.userId}/blogs`}>MY BLOGS</NavLink>
         </li>
       )}
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/NewBlog">NEW BLOG</NavLink>
+          <NavLink to="/blogs/new">NEW BLOG</NavLink>
         </li>
       )}
       {!auth.isLoggedIn && (
