@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
 import Card from "../../Shared/Components/UI-Elements/Card";
 import Button from "../../Shared/Components/Form-Elements/Button";
 import Modal from "../../Shared/Components/UI-Elements/Modal";
+import Spinner from "../../Shared/Components/UI-Elements/Spinner";
+import ErrorModal from "../../Shared/Components/UI-Elements/ErrorModal";
+import {useHttpClient} from '../../Shared/Hooks/Http-Hooks';
+import {AuthContext} from '../../Shared/Context/authContext'
 import "./BlogItem.css";
 
 const BlogItem = (props) => {
+  const {loading,error,sendRequest,clearError} = useHttpClient();
+  const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const showDeleteWarningHandler = () => {
@@ -29,9 +34,7 @@ const BlogItem = (props) => {
             <Button inverse onClick={cancelDeleteHandler}>
               CANCEL
             </Button>
-            <Button danger>
-              DELETE
-            </Button>
+            <Button danger>DELETE</Button>
           </React.Fragment>
         }
       >
@@ -53,10 +56,12 @@ const BlogItem = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="blog-item__actions">
-            <Button type="button" to="/Info">
+            <Button type="button" to={`/Info/${props.id}`}>
               READ MORE
             </Button>
-            <Button inverse to="/UpdateBlog">EDIT</Button>
+            {auth.userId === props.creatorId && (
+              <Button inverse to={`/blogs/${props.id}`}>EDIT</Button>
+            )}
             <Button danger onClick={showDeleteWarningHandler}>
               DELETE
             </Button>
