@@ -26,6 +26,7 @@ const BlogList = (props) => {
             creatorId={blog.creator}
             title={blog.title}
             description={blog.description}
+            onDelete={props.onDeleteBlog}
           />
         );
       })}

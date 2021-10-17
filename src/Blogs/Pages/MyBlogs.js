@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import BlogList from "../Components/BlogList";
 import Spinner from "../../Shared/Components/UI-Elements/Spinner";
 import ErrorModal from "../../Shared/Components/UI-Elements/ErrorModal";
@@ -16,11 +16,17 @@ const MyBlogs = () => {
         const responseData = await sendRequest(
           `http://localhost:5000/api/blogs/user/${userId}`
         );
-        setMyBlogs(responseData.blogs)
+        setMyBlogs(responseData.blogs);
       } catch (err) {}
     };
     fetchMyBlogs();
   }, [sendRequest, userId]);
+
+  const blogDeleteHandler = (deletedBlogId) => {
+    setMyBlogs((prevBlogs) =>
+      prevBlogs.filter((blog) => blog.id !== deletedBlogId)
+    );
+  };
 
   return (
     <React.Fragment>
@@ -30,7 +36,9 @@ const MyBlogs = () => {
           <Spinner />
         </div>
       )}
-      {!loading && myBlogs && <BlogList items={myBlogs} />}
+      {!loading && myBlogs && (
+        <BlogList items={myBlogs} onDeleteBlog={blogDeleteHandler} />
+      )}
     </React.Fragment>
   );
 };

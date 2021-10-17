@@ -21,9 +21,16 @@ const BlogItem = (props) => {
     setShowConfirmModal(false);
   };
 
+  const confirmDeleteHandler = () =>{ 
+    try{
+      sendRequest(`http://localhost:5000/api/blogs/${props.id}`,'DELETE',null);
+      props.onDelete(props.id)
+    }catch(err){}
+  }
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
@@ -34,7 +41,7 @@ const BlogItem = (props) => {
             <Button inverse onClick={cancelDeleteHandler}>
               CANCEL
             </Button>
-            <Button danger>DELETE</Button>
+            <Button danger onClick={confirmDeleteHandler}>DELETE</Button>
           </React.Fragment>
         }
       >
@@ -43,6 +50,7 @@ const BlogItem = (props) => {
           be undone thereafter.
         </p>
       </Modal>
+      {loading && <Spinner />}
       <li className="blog-item">
         <Card className="blog-item__content">
           <div className="blog-item__image">
