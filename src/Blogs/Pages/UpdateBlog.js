@@ -37,21 +37,20 @@ const UpdateBlog = () => {
   );
 
   useEffect(() => {
-    console.log(blogId)
     const fetchBlog = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/blogs/${blogId}`
+          `http://localhost:5000/api/blogs/${blogId}`
         );
         setLoadedBlog(responseData.blog);
         setFormData(
           {
             title: {
-              value: responseData.place.title,
+              value: responseData.blog.title,
               isValid: true,
             },
             description: {
-              value: responseData.place.description,
+              value: responseData.blog.description,
               isValid: true,
             },
           },
@@ -66,7 +65,7 @@ const UpdateBlog = () => {
     event.preventDefault();
     try{
       await sendRequest(
-        `http://localhost:5000/blogs/${blogId}`,
+        `http://localhost:5000/api/blogs/${blogId}`,
         "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
@@ -111,6 +110,7 @@ const UpdateBlog = () => {
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter a valid title."
             onInput={inputHandler}
+            initialValue={loadedBlog.title}
             initialValid={true}
           />
           <Input
@@ -121,6 +121,7 @@ const UpdateBlog = () => {
             validators={[VALIDATOR_MINLENGTH(5)]}
             errorText="Please enter a valid description (min. 5 characters)."
             onInput={inputHandler}
+            initialValue={loadedBlog.description}
             initialValid={true}
           />
           <Button type="submit" disabled={!formState.isValid}>
