@@ -21,12 +21,16 @@ const BlogItem = (props) => {
     setShowConfirmModal(false);
   };
 
-  const confirmDeleteHandler = () =>{ 
-    try{
-      sendRequest(`http://localhost:5000/api/blogs/${props.id}`,'DELETE',null);
-      props.onDelete(props.id)
-    }catch(err){}
-  }
+  const confirmDeleteHandler = async () => {
+    console.log(props.id)
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/blogs/${props.id}`,
+        "DELETE"
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
+  };
 
   return (
     <React.Fragment>
