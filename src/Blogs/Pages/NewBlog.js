@@ -27,10 +27,10 @@ const NewBlog = () => {
         value: "",
         isValid: false,
       },
-      // image: {
-      //   value: null,
-      //   isValid: false,
-      // },
+      image: {
+        value: null,
+        isValid: false,
+      },
     },
     false
   );
@@ -40,17 +40,15 @@ const NewBlog = () => {
   const blogSubmitHandler = async (event) => {
     event.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("title", formState.inputs.title.value);
+      formData.append("description", formState.inputs.description.value);
+      formData.append("creator", auth.userId);
+      formData.append("image", formState.inputs.image.value);
       await sendRequest(
         "http://localhost:5000/api/blogs/create",
         "POST",
-        JSON.stringify({
-          title: formState.inputs.title.value,
-          description: formState.inputs.description.value,
-          creator: auth.userId,
-        }),
-        {
-          "Content-Type": "application/json",
-        }
+        formData
       );
       history.push("/");
     } catch (err) {}
@@ -61,11 +59,11 @@ const NewBlog = () => {
       <ErrorModal error={error} onClear={clearError} />
       {loading && <Spinner />}
       <form className="blog-form" onSubmit={blogSubmitHandler}>
-        {/* <ImageUpload
+        <ImageUpload
           id="image"
           onInput={inputHandler}
           errorText="Please provide an image."
-        /> */}
+        />
         <Input
           id="title"
           element="input"
