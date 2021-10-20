@@ -11,7 +11,7 @@ const InfoCard = (props) => {
       </div>
       <div className="Info__image">
         <img
-          src="https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src={`http://localhost:5000/${props.image}`}
           alt={props.title}
         />
       </div>

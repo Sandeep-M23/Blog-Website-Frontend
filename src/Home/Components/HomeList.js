@@ -19,6 +19,7 @@ const HomeList = (props) => {
       {props.items.map((blog) => (
         <HomeItem
           key={blog.id}
+          image={blog.image}
           id={blog.id}
           title={blog.title}
           description={blog.description}

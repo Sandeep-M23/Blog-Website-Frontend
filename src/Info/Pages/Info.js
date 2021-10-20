@@ -34,6 +34,7 @@ const Info = () => {
         <InfoCard
           key={loadedBlog.id}
           id={loadedBlog.id}
+          image={loadedBlog.image}
           title={loadedBlog.title}
           description={loadedBlog.description}
         />

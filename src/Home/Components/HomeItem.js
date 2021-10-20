@@ -9,10 +9,7 @@ const HomeItem = (props) => {
     <li className="home-item">
       <Card className="home-item__content">
         <div className="home-item__image">
-          <img
-            src="https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="Blog"
-          />
+          <img src={`http://localhost:5000/${props.image}`} alt="Blog" />
         </div>
         <div className="home-item__info">
           <h1>{props.title}</h1>
