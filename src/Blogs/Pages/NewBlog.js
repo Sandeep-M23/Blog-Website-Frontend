@@ -48,7 +48,10 @@ const NewBlog = () => {
       await sendRequest(
         "http://localhost:5000/api/blogs/create",
         "POST",
-        formData
+        formData,
+        {
+          Authorization: 'Bearer ' + auth.token
+        }
       );
       history.push("/");
     } catch (err) {}
