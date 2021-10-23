@@ -22,7 +22,6 @@ const BlogItem = (props) => {
   };
 
   const confirmDeleteHandler = async () => {
-    console.log(props.id)
     try {
       await sendRequest(
         `http://localhost:5000/api/blogs/${props.id}`,

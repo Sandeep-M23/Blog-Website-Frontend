@@ -10,7 +10,6 @@ const Info = () => {
   const { loading, error, sendRequest, clearError } = useHttpClient();
   const blogId = useParams().blogId;
   useEffect(() => {
-    console.log(blogId);
     const fetchBlog = async () => {
       try {
         const responseData = await sendRequest(
