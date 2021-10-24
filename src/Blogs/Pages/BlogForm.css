@@ -6,11 +6,11 @@
     max-width: 60rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
-    background: linear-gradient(30deg,black,#570633);
+    background-color: whitesmoke;
   }
   .empty_Card{
-    background-color:#570633;
-    color: wheat;
+    background-color:#181717;
+    color: whitesmoke;
     padding: 10px 20px;
     margin: 15px;
     border-radius: 5px;

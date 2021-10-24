@@ -1,26 +1,24 @@
 .home-item__content{
     height: 40%;
     display:flex;
-    border:1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
-    color: wheat;
+    color: black;
     margin: 3% auto 0 auto;
     border-radius: 8px;
-    background:linear-gradient(360deg,black,#570633);
+    background-color: whitesmoke;
 }
 
 .home-item__image{
     width: 35%;
-    padding: 15px;
-    border-radius: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .home-item__image img{
     height: 100%;
     max-width: 100%;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .home-item__info{

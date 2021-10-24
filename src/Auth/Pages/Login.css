@@ -5,17 +5,18 @@
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    background: linear-gradient(90deg,black,#570633);
+    background-color: whitesmoke;
+    box-shadow: 0 2px 3px #ccc;
 }
 
 .authentication h2{
-    color:wheat;
+    color:#181717;
     font-size: 2rem;
     font-weight: lighter;
 }  
 
 .authentication hr{
-    border:1px solid wheat;    
+    border:1px solid #181717;    
 }
   
 .authentication form {
