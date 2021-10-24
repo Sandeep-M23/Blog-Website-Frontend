@@ -10,7 +10,9 @@ For Backend Code Click [Here](https://github.com/Sandeep-M23/blog-website-backen
 ### Installation
 
 #### Install dependencies:
-#### `npm install`
+```bash
+npm install
+```
 
 Set the enrivonment variables **`REACT_APP_BACKEND_URL`** and **`REACT_APP_ASSEST_URL`**
 
