@@ -14,7 +14,7 @@ const HomeItem = (props) => {
         <div className="home-item__info">
           <h1>{props.title}</h1>
           <p>{props.description}</p>
-          <Button type="button" to={`Info/${props.id}`}>
+          <Button plain type="button" to={`Info/${props.id}`}>
             READ MORE
           </Button>
         </div>
