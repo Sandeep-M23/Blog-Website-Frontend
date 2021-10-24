@@ -1,6 +1,6 @@
 .form-control {
     margin: 1rem 0;
-    color: wheat;
+    color: #181717;
   }
   
   .form-control label,
@@ -10,7 +10,7 @@
   }
   
   .form-control label {
-    color: wheat;
+    color: #181717;
     font-weight: lighter;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -21,8 +21,8 @@
     width: 100%;
     font: inherit;
     font-size: 1.3rem;
-    color: wheat;
-    border: 1px solid wheat;
+    color: #181717;
+    border: 1px solid #181717;
     background: transparent;
     padding: 0.15rem 0.25rem;
   }
@@ -31,7 +31,7 @@
   .form-control textarea:focus {
     outline: none;
     background: transparent;
-    border-color: white;
+    border-color: #181717;
   }
   
   .form-control--invalid label,

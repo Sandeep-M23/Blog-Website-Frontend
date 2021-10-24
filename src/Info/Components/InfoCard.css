@@ -1,12 +1,11 @@
 .Info {
     margin: 0 auto;
-    padding: 1.5rem;
     width: 90%;
-    max-width: 60rem;
+    max-width: 55rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
-    background: linear-gradient(30deg,black,#570633);
-    color: wheat;
+    background-color: #181717;
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,12 +17,9 @@
 }
 
 .Info__image{
-    width: 70%;
-    height: 50%;
-    padding: 15px;
-    background-color: wheat;
+    width: 100%;
     border-radius: 5px;
-    max-height: 50%;
+    max-height: 30%;
 }
 
 .Info__image img{
@@ -39,11 +35,3 @@
     font-size: 1.2rem;
     text-align: center;
 }
-
-
-
-@media (max-width: 768px) {
-    .Info__image{
-        width: 60%;
-    }
-  }

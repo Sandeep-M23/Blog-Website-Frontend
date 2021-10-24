@@ -4,8 +4,8 @@
   top: 22vh;
   left: 10%;
   width: 80%;
-  background:linear-gradient(180deg,black,#570633);
-  color: wheat;
+  background-color: #181717;
+  color: whitesmoke;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
   font-size: 1rem;
@@ -15,7 +15,7 @@
   width: 100%;
   padding: 1rem 0.5rem;
   font-size: 1.3rem;
-  background: wheat;
+  background: whitesmoke;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   color: black;

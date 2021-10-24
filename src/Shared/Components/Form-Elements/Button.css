@@ -1,6 +1,6 @@
 .button {
-    background-color:wheat;
-    color: #570633;
+  background-color: #F97316;
+    color:black;
     margin-top: 5px;
     padding: .75rem 1.5rem;
     font-size: 1rem;
@@ -18,30 +18,44 @@
   
   .button:hover,
   .button:active {
-     background-color: #b19f7ef8;
-     color: #a50b60;
+    background-color: #d85c04;
+    color:rgb(46, 45, 45);
+  }
+
+  .button--plain {
+    background-color: transparent;
+    color:#F97316
+  }
+
+  .button--plain:hover,
+  .button--plain:active{
+    background-color: transparent;
+    text-decoration: underline;
+    color:#F97316
   }
   
   .button--inverse {
     background: transparent;
-    border: 1px solid #f5deb3ab;
-    color: #f5deb3ab;
+    border: 1px solid #F97316;
+    color: #F97316;
   }
   
   .button--inverse:hover,
   .button--inverse:active {
-    background-color: wheat;
+    text-decoration: none;
+    background-color: #F97316;
     color: black;
   }
   
   .button--danger {
-    background: #b80303;
+    background: #eb0404;
     color: white;
   }
   
   .button--danger:hover,
   .button--danger:active {
-    background-color: #eb0404;
+    text-decoration: none;
+    background-color: #b80303;
     color: white;
   }
   

@@ -1,31 +1,35 @@
 .main-navigation__menu-btn {
     height: 3rem;
-    background: white;
+    background: black;
     border: none;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-right: 2rem;
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 5px;
   }
   
   .main-navigation__menu-btn span {
     display: flex;
-    border-radius: 4px;
+    border-radius: 2px;
     width: 2.5rem;
     height: 5px;
-    background: black;
+    background: whitesmoke;
   }
   
   .main-navigation__title {
-    color: wheat;
+    color: black;
   }
   
   .main-navigation__title a {
     text-decoration: none;
-    color: wheat;
+    color: black;
+  }
+
+  .main-navigation__title a:hover{
+    color: #F97316;
   }
   
   .main-navigation__header-nav {
