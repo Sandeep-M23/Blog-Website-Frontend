@@ -9,7 +9,7 @@ const HomeItem = (props) => {
     <li className="home-item">
       <Card className="home-item__content">
         <div className="home-item__image">
-          <img src={`http://localhost:5000/${props.image}`} alt="Blog" />
+          <img src={`${process.env.REACT_APP_ASSEST_URL}/${props.image}`} alt="Blog" />
         </div>
         <div className="home-item__info">
           <h1>{props.title}</h1>

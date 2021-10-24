@@ -46,7 +46,7 @@ const NewBlog = () => {
       formData.append("creator", auth.userId);
       formData.append("image", formState.inputs.image.value);
       await sendRequest(
-        "http://localhost:5000/api/blogs/create",
+        `${process.env.REACT_APP_BACKEND_URL}/blogs/create`,
         "POST",
         formData,
         {

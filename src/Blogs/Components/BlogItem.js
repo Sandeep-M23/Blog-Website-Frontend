@@ -24,7 +24,7 @@ const BlogItem = (props) => {
   const confirmDeleteHandler = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/blogs/${props.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/blogs/${props.id}`,
         "DELETE",
         null,
         { Authorization: "Bearer " + auth.token }
@@ -60,7 +60,7 @@ const BlogItem = (props) => {
         <Card className="blog-item__content">
           <div className="blog-item__image">
             <img
-              src={`http://localhost:5000/${props.image}`}
+              src={`${process.env.REACT_APP_ASSEST_URL}/${props.image}`}
               alt={props.title}
             />
           </div>

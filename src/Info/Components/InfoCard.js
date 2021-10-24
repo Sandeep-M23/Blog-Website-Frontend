@@ -8,7 +8,7 @@ const InfoCard = (props) => {
     <Card className="Info">
       <div className="Info__image">
         <img
-          src={`http://localhost:5000/${props.image}`}
+          src={`${process.env.REACT_APP_ASSEST_URL}/${props.image}`}
           alt={props.title}
         />
       </div>

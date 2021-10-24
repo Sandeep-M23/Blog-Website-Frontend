@@ -1,4 +1,4 @@
-import React from "react";
+import React , {Suspense}from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -6,16 +6,16 @@ import {
   Switch,
 } from "react-router-dom";
 import Layout from "./hoc/Layout/Layout";
-
-import Home from "./Home/Pages/Home";
-import NewBlog from "./Blogs/Pages/NewBlog";
-import MyBlogs from "./Blogs/Pages/MyBlogs";
-import UpdateBlog from "./Blogs/Pages/UpdateBlog";
-import Info from "./Info/Pages/Info";
-import Login from "./Auth/Pages/Login";
-
+import Spinner from "./Shared/Components/UI-Elements/Spinner";
 import { AuthContext } from "./Shared/Context/authContext";
 import { useAuth } from "./Shared/Hooks/Auth-Hook";
+
+const Home = React.lazy(() => import("./Home/Pages/Home"));
+const NewBlog = React.lazy(() => import("./Blogs/Pages/NewBlog"));
+const MyBlogs = React.lazy(() => import("./Blogs/Pages/MyBlogs"));
+const UpdateBlog = React.lazy(() => import("./Blogs/Pages/UpdateBlog"));
+const Info = React.lazy(() => import("./Info/Pages/Info"));
+const Login = React.lazy(() => import("./Auth/Pages/Login"));
 
 const App = () => {
   const {token,loginHandler,logoutHandler,userId} = useAuth();
@@ -63,14 +63,24 @@ const App = () => {
       <AuthContext.Provider
         value={{
           isLoggedIn: !!token,
-          token:token,
+          token: token,
           userId: userId,
           login: loginHandler,
           logout: logoutHandler,
         }}
       >
         <Router>
-          <Layout>{routes}</Layout>
+          <Layout>
+            <Suspense
+              fallback={
+                <div className="center">
+                  <Spinner />
+                </div>
+              }
+            >
+              {routes}
+            </Suspense>
+          </Layout>
         </Router>
       </AuthContext.Provider>
     </div>
