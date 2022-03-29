@@ -3,7 +3,7 @@ Frontend for a Blog Writing Website Using:
 
 * [ReactJS](https://reactjs.org/)
 
-For Backend Code Click [Here](https://github.com/Sandeep-M23/blog-website-backend)
+For Backend Code Click [Here](https://github.com/Sandeep-M23/Blog-Website-Backend)
 
 ## Getting started
 
